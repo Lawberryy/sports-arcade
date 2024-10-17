@@ -36,6 +36,10 @@ function displayStartMessage() {
     ctx.font = `bold 16px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
+    ctx.font = 'bold 12px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText('Utilise la Bar Espace pour sauter', canvas.width / 2, canvas.height / 2 + 30);
 }
 
 function startGame() {

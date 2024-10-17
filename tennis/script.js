@@ -83,6 +83,10 @@ function drawStartScreen() {
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';
     ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
+    ctx.font = 'bold 12px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText('Joueur 1 : Z, S / Joueur 2 : Flèche Haut, Flèche Bas', canvas.width / 2, canvas.height / 2 + 30);
 }
 
 function drawCountdown() {
