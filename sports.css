@@ -10,7 +10,7 @@ body .hero {
   align-items: center;
   justify-content: center;
   height: 40vh;
-  background-image: url(./affiche-JO.jpg);
+  background-image: url(./media/affiche-JO.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
