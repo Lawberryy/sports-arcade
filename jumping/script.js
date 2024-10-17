@@ -6,6 +6,11 @@ const ctx = canvas.getContext('2d');
 ctx.canvas.width = window.innerWidth - 20;
 ctx.canvas.height = 250;
 
+if (window.innerWidth < 768) {
+    canvas.width = window.innerHeight - 100;
+    canvas.height = window.innerWidth - 100;
+}
+
 // Charger les images pour le joueur et les obstacles
 let player = new Player(250, 250, 50, 50, 'playerImage.png'); // Remplacez 'playerImage.png' par l'URL de votre image
 let obstacles = [];
@@ -28,9 +33,13 @@ function displayStartMessage() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 40px Arial';
+    ctx.font = `bold 16px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
+    ctx.font = 'bold 12px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText('Utilise la Bar Espace pour sauter', canvas.width / 2, canvas.height / 2 + 30);
 }
 
 function startGame() {
@@ -88,7 +97,7 @@ function loop() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1;
         ctx.fillStyle = 'white';
-        ctx.font = ' bold 32px Arial';
+        ctx.font = `bold 16px Arial`;
         ctx.fillText('Tu as perdu !', canvas.width / 2, canvas.height / 2);
         return;
     }
@@ -101,7 +110,7 @@ function loop() {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 1;
         ctx.fillStyle = 'white';
-        ctx.font = 'bold 32px Arial';
+        ctx.font = `bold 16px Arial`;
         ctx.fillText('Tu as gagné !', canvas.width / 2, canvas.height / 2);
         return;
     }

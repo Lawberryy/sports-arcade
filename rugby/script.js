@@ -79,9 +79,13 @@ function displayStartMessage() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1.0;
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 40px Arial';
+    ctx.font = `bold 16px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
+    ctx.font = 'bold 12px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'center';
+    ctx.fillText('Déplace ton personnage avec la souris pour esquiver', canvas.width / 2, canvas.height / 2 + 30);
 }
 
 function startGame() {
@@ -116,7 +120,7 @@ function gameLoop() {
         ctx.fillStyle = "#8A8EF1";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'white';
-        ctx.font = 'bold 32px Arial';
+        ctx.font = `bold 16px Arial`;
         ctx.fillText("Tu t'es fait plaquer ! Appuie sur Entrer pour recommencer", canvas.width / 2, canvas.height / 2);
         return;
     }
@@ -146,7 +150,7 @@ function gameLoop() {
         ctx.fillStyle = "#8A8EF1"; // Alterner les couleurs
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'white';
-        ctx.font = 'bold 32px Arial';
+        ctx.font = `bold 16px Arial`;
         ctx.fillText('Tu as gagné ! Appuie sur Entrer pour recommencer', canvas.width / 2, canvas.height / 2);
         return;
     }
