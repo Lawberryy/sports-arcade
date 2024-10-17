@@ -1,0 +1,272 @@
+body,
+html {
+  width: 100vw;
+}
+body {
+  padding-top: 10vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("terrain-de-rugby.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#burger {
+  display: none;
+}
+
+.mobile-cta {
+  display: none;
+}
+
+.main-nav {
+  width: 100%;
+  padding: 16px 32px;
+  background-color: #8a8ef1;
+}
+
+.main-nav ul {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  gap: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.main-nav ul li a {
+  text-decoration: none !important;
+  color: #fff;
+}
+
+ul li.cta a,
+a.cta {
+  padding: 12px 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #8a8ef1 !important;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    position: static;
+    width: 0;
+  }
+  .mobile-cta {
+    display: flex;
+  }
+  .desktop-cta {
+    display: none !important;
+  }
+  #burger {
+    display: block;
+  }
+  .main-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background: #fff;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    transition: all 0.375s;
+  }
+
+  .main-nav.is-open {
+    opacity: 1;
+    z-index: 100;
+    visibility: visible;
+  }
+
+  .main-nav::before {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    background: #8a8ef1;
+    transform-origin: 0 0;
+    transform: skew(-14deg) translateX(-120%);
+    transition: all 0.275s 0.1s;
+  }
+
+  .main-nav.is-open::before {
+    transform: skew(-14deg) translateX(0);
+  }
+
+  .main-nav ul {
+    display: inline-flex;
+    flex-direction: column;
+    height: 93%;
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateX(-18%) skew(-16deg);
+  }
+
+  .main-nav li {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: right;
+    transform: skew(16deg);
+  }
+
+  .main-nav a {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .main-nav.is-open a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .main-nav li:nth-child(1) a {
+    transition: all 275ms 175ms;
+  }
+  .main-nav li:nth-child(2) a {
+    transition: all 275ms 225ms;
+  }
+  .main-nav li:nth-child(3) a {
+    transition: all 275ms 275ms;
+  }
+  .main-nav li:nth-child(4) a {
+    transition: all 275ms 325ms;
+  }
+  .main-nav li:nth-child(5) a {
+    transition: all 275ms 375ms;
+  }
+
+  .main-nav ul,
+  .main-nav li {
+    list-style: none;
+    padding: 0;
+  }
+  .main-nav a {
+    display: block;
+    padding: 12px 0;
+    color: #fff;
+    font-size: 1.4em;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .open-main-nav {
+    position: absolute;
+    top: 15px;
+    padding-top: 20px;
+    right: 15px;
+    z-index: 1000;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .open-main-nav:focus {
+    outline: none;
+  }
+  .burger {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 0 auto;
+    background: #8a8ef1;
+    transform: skew(5deg);
+    transition: all 0.275s;
+  }
+
+  .is-open .burger {
+    background-color: #fff;
+  }
+
+  .burger:after,
+  .burger:before {
+    content: "";
+    display: block;
+    height: 100%;
+    background: #8a8ef1;
+    transition: all 0.275s;
+  }
+
+  .is-open .burger::after,
+  .is-open .burger::before,
+  .is-open .burger {
+    background-color: #fff;
+  }
+
+  .is-open .burger-text {
+    color: #fff;
+  }
+
+  .burger:after {
+    transform: translateY(-12px) translateX(-2px) skew(-20deg);
+  }
+
+  .burger:before {
+    transform: translateY(-16px) skew(-10deg);
+  }
+
+  /* Toggle State part */
+  .is-open .burger {
+    transform: skew(5deg) translateY(-8px) rotate(-45deg);
+  }
+
+  .is-open .burger:before {
+    transform: translateY(0px) skew(-10deg) rotate(75deg);
+  }
+
+  .is-open .burger:after {
+    transform: translateY(-12px) translateX(10px) skew(-20deg);
+    opacity: 0;
+  }
+
+  /* MENU Text part */
+
+  .burger-text {
+    display: block;
+    font-size: 0.675rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    color: #8a8ef1;
+  }
+
+  .container {
+    overflow: hidden;
+    background: linear-gradient(to bottom, #eee, #ddd);
+  }
+
+  html {
+    height: 100%;
+  }
+}
