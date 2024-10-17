@@ -12,6 +12,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
+if (window.innerWidth < 768) {
+    canvas.height = window.innerWidth - 100;
+    canvas.width = window.innerHeight - 100;
+}
+
 const player1 = new Player(0, canvas.height / 2 - 50, 10, 100, canvas.height);
 const player2 = new Player(canvas.width - 10, canvas.height / 2 - 50, 10, 100, canvas.height);
 const ball = new Ball(canvas.width / 2, canvas.height / 2, 10, canvas.width, canvas.height);
@@ -62,7 +67,7 @@ function drawScore() {
 }
 
 function drawMessage(text) {
-    ctx.font = 'bold 32px Arial';
+    ctx.font = 'bold 16px Arial';
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
@@ -74,10 +79,10 @@ function drawStartScreen() {
     ctx.globalAlpha = 0.8;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
-    ctx.font = 'bold 40px Arial';
+    ctx.font = 'bold 16px Arial';
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';
-    ctx.fillText('Appuyez sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
+    ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
 }
 
 function drawCountdown() {

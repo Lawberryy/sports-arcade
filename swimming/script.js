@@ -6,6 +6,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 100;
 canvas.height = 200;
 
+if (window.innerWidth < 768) {
+    canvas.width = window.innerHeight - 100;
+    canvas.height = 300;
+}
+
 let player;
 let opponent;
 let lastKeyPressed = null;
@@ -73,7 +78,7 @@ function displayStartMessage() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
     ctx.fillStyle = 'white'
-    ctx.font = 'bold 40px Arial';
+    ctx.font = `bold 16px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('Appuie sur Entrer pour commencer', canvas.width / 2, canvas.height / 2);
 }
@@ -88,7 +93,7 @@ function displayEndScreen(message) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#8A8EF1"; // Alterner les couleurs
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = 'bold 32px Arial';
+    ctx.font = `bold 16px Arial`;
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center';
     ctx.fillText(message, canvas.width / 2, canvas.height / 2);
